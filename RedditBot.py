@@ -5,9 +5,7 @@ import os
 import time
 import urbandictionary as ud
 from psaw import PushshiftAPI
-from urllib.parse import quote_plus
 from PyDictionary import PyDictionary
-from nltk.corpus import words
 from nltk.corpus import wordnet as wn
 from bs4 import BeautifulSoup
 
