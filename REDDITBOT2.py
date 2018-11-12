@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 import bmemcached
 import os
 
-postIDs = {"0"}
 
 api = PushshiftAPI()
 mcLength = 0;
@@ -43,26 +42,24 @@ def checkComments(ID):
             return True
 
 def getPosts():
-    mcIndex = int(mc.get("length"))
+    postIDs = mc.get("postIDs")
     print("beepy") 
-    print(mc.get("0"))
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
         splitComment = subm.body.split(" ")
         word = ""
-        if((splitComment[0] == "!IsThisAWord") and checkComments(subm.id)):
+        if((splitComment[0] == "!IsThisAWord") and (subm.id not in postIDs  ):
             for i in range(1,len(splitComment)):
                 word += splitComment[i] + " "    
             word = word.strip()
             print("Bot replying to : ", subm.id)
-            mc.set(str(mcIndex),subm.id)
-            mcLength+=1
-            print("Wrting..")
+           postIDs.append(subm.id)
+           print("Wrting..")
             try:        
                 replyPosts(word,subm.id)
             except:
                 print("maybe delted")
-    mc.set("length",str(mcLength))   
+    mc.set("postIDs", postIDs)   
             
    
 
