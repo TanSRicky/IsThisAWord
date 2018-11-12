@@ -32,7 +32,7 @@ def checkComments(ID):
             return True
 
 def getPosts():
-     gen = api.search_comments(q='!IsThisAWord')
+    gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
         splitComment = subm.body.split(" ")
         word = ""
