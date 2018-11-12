@@ -7,6 +7,7 @@ import bmemcached
 import os
 
 
+
 api = PushshiftAPI()
 mcLength = 0;
 #client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
@@ -19,17 +20,8 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      username=os.environ['REDDIT_USERNAME'],
                      user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
-print(mc.get("initial"))
-print(mc.get("hello"))
-print("BEEP ABOVE")
-      
-if(mc.get("initial") == "0"):
-    #mc.set("initial", "0")
-    #mc.set("length", "0")
-    #mc.set("temp", "0")
-    print("beep initial")
-
-
+postIDs = {0}
+mc.set("postIDs", postIDs)
 
 
 def checkComments(ID):
@@ -104,7 +96,6 @@ def replyPosts(word, commId):
     reply = (wordSearched+""+replyText1+""+replyText2+""+botFooter+""+botFooter2)
     comment = reddit.comment(commId)
     comment.reply(reply)
-    time.sleep(5)
 
 def main():
         getPosts()
