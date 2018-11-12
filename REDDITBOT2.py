@@ -24,9 +24,9 @@ api = PushshiftAPI()
 mcLength = 0
 mcIndex = 0
 def checkComments(ID):
-    print("beepy")
     for i in range(0, mcLength):
         ID = mc.get(str(i))
+        print(ID)
         if ID == subm.id:
             return False
         else:
@@ -36,7 +36,6 @@ def getPosts():
     print("beepy") 
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
-        print(subm.id)
         splitComment = subm.body.split(" ")
         word = ""
         if((splitComment[0] == "!IsThisAWord") and checkComments(subm.id)):
