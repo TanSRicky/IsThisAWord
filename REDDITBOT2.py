@@ -4,6 +4,7 @@ from psaw import PushshiftAPI
 from nltk.corpus import wordnet as wn
 from bs4 import BeautifulSoup
 import bmemcached
+import os
 
 
 
