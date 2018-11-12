@@ -26,7 +26,7 @@ mcIndex = 0
 def checkComments(ID):
     for i in range(0, mcLength):
         ID = mc.get(str(i))
-        if ID == sumb.id:
+        if ID == subm.id:
             return False
         else:
             return True
