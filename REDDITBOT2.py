@@ -36,6 +36,7 @@ def getPosts():
     print("beepy") 
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
+        print(subm.id)
         splitComment = subm.body.split(" ")
         word = ""
         if((splitComment[0] == "!IsThisAWord") and checkComments(subm.id)):
