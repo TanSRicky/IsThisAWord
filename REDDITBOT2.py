@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import bmemcached
 import os
 
-
+api = PushshiftAPI()
 
 #client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
 mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
