@@ -7,7 +7,7 @@ import bmemcached
 
 
 
-client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
+#client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
 mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
      os.environ.get('MEMCACHEDCLOUD_USERNAME'),
      os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
