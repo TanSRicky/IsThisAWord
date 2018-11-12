@@ -1,16 +1,17 @@
 import praw
-from wordnik import *
 import urbandictionary as ud
 from psaw import PushshiftAPI
 from nltk.corpus import wordnet as wn
 from bs4 import BeautifulSoup
+from wordnik import *
 import bmemcached
+
 
 
 client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
 mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
-    os.environ.get('MEMCACHEDCLOUD_USERNAME'),
-    os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
+     os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+     os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
 
 reddit = praw.Reddit(os.environ['ID'],
                      os.environ['SECRET'],
@@ -19,7 +20,8 @@ reddit = praw.Reddit(os.environ['ID'],
                      os.environ['REDDIT_USERNAME'])
 
 api = PushshiftAPI()
-
+mcLength = 0
+mcIndex = 0
 def checkComments(ID):
     for i in range(0, mcLength):
         ID = mc.get(str(i))
@@ -38,7 +40,7 @@ def getPosts():
             word = word.strip()
             print("Bot replying to : ", subm.id)
             mc.set(str(mcIndex),subm.id)
-            mcLength++;
+            mcLength+=1
             print("Wrting..")
             try:        
                 replyPosts(word,subm.id)
@@ -67,7 +69,7 @@ def defDict(word):
         definitions = wordApi.getDefinitions(word)
         return definitions[0].text
     except:
-	pass
+        pass
     try:
         return wn.synsets(word.strip())[0].definition()
     except:
