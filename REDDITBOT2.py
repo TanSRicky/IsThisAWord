@@ -19,12 +19,12 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
 
+mc.set("0", "0")
 
-api = PushshiftAPI()
-mcLength = 0
-mcIndex = 0
+
+
 def checkComments(ID):
-    for i in range(0, mcLength):
+    for i in range(2, mcLength):
         ID = mc.get(str(i))
         print(ID)
         if ID == subm.id:
@@ -34,11 +34,12 @@ def checkComments(ID):
 
 def getPosts():
     print("beepy") 
+    print(mc.get("0"))
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
         splitComment = subm.body.split(" ")
         word = ""
-        if((splitComment[0] == "!IsThisAWord") and checkComments(subm.id)):
+        if(splitComment[0] == "!IsThisAWord") and checkComments(subm.id)):
             for i in range(1,len(splitComment)):
                 word += splitComment[i] + " "    
             word = word.strip()
@@ -46,6 +47,7 @@ def getPosts():
             mc.set(str(mcIndex),subm.id)
             mcLength+=1
             print("Wrting..")
+            mc.set*
             try:        
                 replyPosts(word,subm.id)
             except:
