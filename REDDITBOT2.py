@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import bmemcached
 import os
 
+postIDs = {"0"}
+mc.set("postIDs", postIDs)
 api = PushshiftAPI()
 mcLength = 0;
 #client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
