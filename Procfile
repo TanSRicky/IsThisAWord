@@ -1,2 +1,2 @@
-worker : python RedditBot.py
-web : python RedditBot.py
+worker : python REDDITBOT2.py
+
