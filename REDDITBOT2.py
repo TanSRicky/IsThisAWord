@@ -7,14 +7,14 @@ import bmemcached
 import os
 
 postIDs = {"0"}
-mc.set("postIDs", postIDs)
+
 api = PushshiftAPI()
 mcLength = 0;
 #client = swagger.ApiClient(os.environ('wnKEY'), os.environ('wnURL'))
 mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
      os.environ.get('MEMCACHEDCLOUD_USERNAME'),
      os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
-
+mc.set("postIDs", postIDs)
 reddit = praw.Reddit(client_id=os.environ['ID'],
                      client_secret=os.environ['SECRET'],
                      username=os.environ['REDDIT_USERNAME'],
