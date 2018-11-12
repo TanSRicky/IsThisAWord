@@ -96,7 +96,7 @@ def replyPosts(word, commId):
 def main():
         getPosts()
         print("Sleepy")
-        time.sleep(30)
+
         
 if __name__ == "__main__":
      print("beep")
