@@ -24,6 +24,7 @@ api = PushshiftAPI()
 mcLength = 0
 mcIndex = 0
 def checkComments(ID):
+    print("beepy")
     for i in range(0, mcLength):
         ID = mc.get(str(i))
         if ID == subm.id:
@@ -32,6 +33,7 @@ def checkComments(ID):
             return True
 
 def getPosts():
+    print("beepy") 
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
         splitComment = subm.body.split(" ")
@@ -52,6 +54,7 @@ def getPosts():
    
 
 def defUrban(word):
+    print("beepy")
     try:
         defs = ud.define(word) 
         return defs[0].definition
