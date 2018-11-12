@@ -1,2 +1,1 @@
-worker : python REDDITBOT2.py
-
+worker python REDDITBOT2.py
