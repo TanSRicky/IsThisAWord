@@ -19,6 +19,7 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
 print(mc.get("initial"))
+mc.set("hello","beep")
 print("hello")
       
 if(mc.get("initial") == "0"):
