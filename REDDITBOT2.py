@@ -3,7 +3,6 @@ import urbandictionary as ud
 from psaw import PushshiftAPI
 from nltk.corpus import wordnet as wn
 from bs4 import BeautifulSoup
-from wordnik import *
 import bmemcached
 
 
