@@ -48,7 +48,7 @@ def getPosts():
     for subm in gen:
         splitComment = subm.body.split(" ")
         word = ""
-        if((splitComment[0] == "!IsThisAWord") and (subm.id not in postIDs  ):
+        if((splitComment[0] == "!IsThisAWord") and (subm.id not in postIDs)):
             for i in range(1,len(splitComment)):
                 word += splitComment[i] + " "    
             word = word.strip()
