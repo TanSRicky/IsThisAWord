@@ -18,14 +18,17 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      username=os.environ['REDDIT_USERNAME'],
                      user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
+if(mc.get("initial") == 0):
+    #mc.set("initial", "0")
+    #mc.set("length", "0")
+    #mc.set("temp", "0")
+    print("beep initial")
 
-mc.set("0", "0")
-mcIndex=0;
 
 
 
 def checkComments(ID):
-    for i in range(2, mcLength):
+    for i in range(0, mcLength):
         ID = mc.get(str(i))
         print(ID)
         if ID == subm.id:
@@ -34,6 +37,7 @@ def checkComments(ID):
             return True
 
 def getPosts():
+    mcIndex = int(mc.get("length"))
     print("beepy") 
     print(mc.get("0"))
     gen = api.search_comments(q='!IsThisAWord')
@@ -52,6 +56,7 @@ def getPosts():
                 replyPosts(word,subm.id)
             except:
                 print("maybe delted")
+    mc.set("length",str(mcLength))   
             
    
 
