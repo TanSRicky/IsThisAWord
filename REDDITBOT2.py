@@ -47,7 +47,6 @@ def getPosts():
             mc.set(str(mcIndex),subm.id)
             mcLength+=1
             print("Wrting..")
-            mc.set*
             try:        
                 replyPosts(word,subm.id)
             except:
