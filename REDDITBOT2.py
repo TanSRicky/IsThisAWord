@@ -53,7 +53,7 @@ def getPosts():
                 word += splitComment[i] + " "    
             word = word.strip()
             print("Bot replying to : ", subm.id)
-            postIDs.append(subm.id)
+            postIDs.add(subm.id)
             print("Wrting..")
             try:        
                 replyPosts(word,subm.id)
