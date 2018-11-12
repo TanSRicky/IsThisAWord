@@ -13,11 +13,12 @@ mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
      os.environ.get('MEMCACHEDCLOUD_USERNAME'),
      os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
 
-reddit = praw.Reddit(os.environ['ID'],
-                     os.environ['SECRET'],
-                     os.environ['REDDIT_PASSWORD'],
-                     os.environ['useragent'],
-                     os.environ['REDDIT_USERNAME'])
+reddit = praw.Reddit(client_id=os.environ['ID'],
+                     client_secret=os.environ['SECRET'],
+                     username=os.environ['REDDIT_USERNAME'],
+                     user_agent= os.environ['useragent'],
+                     passwordt=os.environ['REDDIT_PASSWORD'])
+
 
 api = PushshiftAPI()
 mcLength = 0
