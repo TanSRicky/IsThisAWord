@@ -34,7 +34,7 @@ def checkComments(ID):
             return True
 
 def getPosts():
-    postIDs = mc.get("postIDs")
+    #postIDs = mc.get("postIDs")
     print("beepy") 
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
