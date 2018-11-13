@@ -34,7 +34,7 @@ def checkComments(ID):
             return True
 
 def getPosts():
-    #postIDs = mc.get("postIDs")
+    postIDs = mc.get("postIDs")
     print("beepy") 
     gen = api.search_comments(q='!IsThisAWord')
     for subm in gen:
@@ -46,11 +46,9 @@ def getPosts():
             word = word.strip()
             print("Bot replying to : ", subm.id)
             postIDs.add(subm.id)
-            print("Wrting..")
-            try:        
-                replyPosts(word,subm.id)
-            except:
-                print("maybe delted")
+            print("Wrting..")   
+            replyPosts(word,subm.id)
+            print("maybe delted")
     mc.set("postIDs", postIDs)   
             
    
