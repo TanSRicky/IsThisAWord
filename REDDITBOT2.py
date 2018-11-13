@@ -19,7 +19,8 @@ print(mc.get("postIDs"))
 reddit = praw.Reddit(client_id=os.environ['ID'],
                      client_secret=os.environ['SECRET'],
                      username=os.environ['REDDIT_USERNAME'],
-                     passwordt=os.environ['REDDIT_PASSWORD'])
+                     user_agent= os.environ['useragent'],
+                     password=os.environ['REDDIT_PASSWORD'])
 
 print(reddit.user.me())
 postIDs = {0}
