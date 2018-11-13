@@ -15,11 +15,12 @@ mc = bmemcached.Client(os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
      os.environ.get('MEMCACHEDCLOUD_USERNAME'),
      os.environ.get('MEMCACHEDCLOUD_PASSWORD'))
 print(mc.get("postIDs"))
+
 reddit = praw.Reddit(client_id=os.environ['ID'],
                      client_secret=os.environ['SECRET'],
                      username=os.environ['REDDIT_USERNAME'],
-                     user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
+
 print(reddit.user.me())
 postIDs = {0}
 mc.set("postIDs", postIDs)
