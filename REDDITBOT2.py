@@ -20,6 +20,7 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      username=os.environ['REDDIT_USERNAME'],
                      user_agent= os.environ['useragent'],
                      passwordt=os.environ['REDDIT_PASSWORD'])
+reddit.login(disable_warning=True)
 postIDs = {0}
 mc.set("postIDs", postIDs)
 
