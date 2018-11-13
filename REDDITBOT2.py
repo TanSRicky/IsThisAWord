@@ -48,7 +48,6 @@ def getPosts():
             postIDs.add(subm.id)
             print("Wrting..")   
             replyPosts(word,subm.id)
-            print("maybe delted")
     mc.set("postIDs", postIDs)   
             
    
