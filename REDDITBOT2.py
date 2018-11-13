@@ -1,5 +1,5 @@
 import praw
-import urbandictionary as ud
+from urbandictionary import urbandictionary as ud
 from psaw import PushshiftAPI
 from nltk.corpus import wordnet as wn
 from bs4 import BeautifulSoup
