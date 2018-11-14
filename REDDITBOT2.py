@@ -23,8 +23,6 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      password=os.environ['REDDIT_PASSWORD'])
 
 print(reddit.user.me())
-postIDs = {0}
-mc.set("postIDs", postIDs)
 
 
 def checkComments(ID):
@@ -49,8 +47,11 @@ def getPosts():
             word = word.strip()
             print("Bot replying to : ", subm.id)
             postIDs.add(subm.id)
-            print("Wrting..")   
-            replyPosts(word,subm.id)
+            print("Wrting..")
+            try:
+                replyPosts(word,subm.id)
+            catch:
+               print("maybe delted")
     mc.set("postIDs", postIDs)   
             
    
