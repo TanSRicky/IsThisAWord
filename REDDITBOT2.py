@@ -50,7 +50,7 @@ def getPosts():
             print("Wrting..")
             try:
                 replyPosts(word,subm.id)
-            catch:
+            except:
                print("maybe delted")
     mc.set("postIDs", postIDs)   
             
