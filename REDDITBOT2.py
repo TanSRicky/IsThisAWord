@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import bmemcached
 import os
 from wordnik import *
+import time
 
 
 api = PushshiftAPI()
@@ -99,8 +100,10 @@ def replyPosts(word, commId):
     comment.reply(reply)
 
 def main():
+    for i in range(0, 550):     
         getPosts()
         print("Sleepy")
+        time.sleep(1)
 
         
 if __name__ == "__main__":
