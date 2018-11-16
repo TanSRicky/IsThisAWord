@@ -23,18 +23,6 @@ reddit = praw.Reddit(client_id=os.environ['ID'],
                      user_agent= os.environ['useragent'],
                      password=os.environ['REDDIT_PASSWORD'])
 
-print(reddit.user.me())
-
-
-def checkComments(ID):
-    for i in range(0, mcLength):
-        ID = mc.get(str(i))
-        print(ID)
-        if ID == subm.id:
-            return False
-        else:
-            return True
-
 def getPosts():
     postIDs = mc.get("postIDs")
     print("beepy") 
@@ -54,9 +42,7 @@ def getPosts():
             except:
                print("maybe delted")
     mc.set("postIDs", postIDs)   
-            
-   
-
+           
 def defUrban(word):
     print("beepy")
     try:
