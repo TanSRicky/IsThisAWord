@@ -30,7 +30,7 @@ def getPosts():
     for subm in gen:
         splitComment = subm.body.split(" ")
         word = ""
-        if((splitComment[0] == "!IsThisAWord") and (subm.id not in postIDs)):
+        if((splitComment[0].lower() == "!isthisaword") and (subm.id not in postIDs)):
             for i in range(1,len(splitComment)):
                 word += splitComment[i] + " "    
             word = word.strip()
@@ -61,7 +61,7 @@ def defUrban(word):
 def defDict(word):
     try:
         wordApi = WordApi.WordApi(client)
-        definitions = wordApi.getDefinitions(word)
+        definitions = wordApi.getDefinitions(word.lower())
         return definitions[0].text
     except:
         pass
